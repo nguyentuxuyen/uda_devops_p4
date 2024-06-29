@@ -5,7 +5,7 @@ on:
     branches:
         - main
     paths:
-      - 'starter/backend/**'
+      - "starter/backend/**"
   
 env:
   PYTHON_VERSION: '3.10'
