@@ -1,4 +1,4 @@
-name: Frontend App
+name: Frontend Continuous Deployment
 
 on:
   workflow_dispatch:
@@ -7,7 +7,7 @@ on:
       - main
     paths:
       - "starter/frontend/**"
-  
+
 env:
   NODE_VERSION: '18.x'
 
