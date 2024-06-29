@@ -1,5 +1,4 @@
 name: Frontend Continuous Integration
-
 on:
   workflow_dispatch:
   pull_request:
@@ -27,7 +26,7 @@ jobs:
       with:
         node-version: ${{env.NODE_VERSION}}
 
-    - name: Cache npm
+    - name: Perform a cache action to restore cache before dependency install
       id: cache-npm
       uses: actions/cache@v3
       env:
@@ -40,14 +39,14 @@ jobs:
           ${{ runner.os }}-build-
           ${{ runner.os }}-
 
-    - name: Install npm
+    - name: Install dependencies
       run: npm install
 
     - name: Run lint
       run: npm run lint
 
   test:
-    name: Running tests
+    name: Setup env for test
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -56,12 +55,12 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Setup node
+    - name: Setup NodeJS
       uses: actions/setup-node@v3
       with:
         node-version: ${{env.NODE_VERSION}}
 
-    - name: Cache npm
+    - name: Perform a cache action to restore cache before dependency install
       id: cache-npm
       uses: actions/cache@v3
       env:
@@ -74,7 +73,7 @@ jobs:
           ${{ runner.os }}-build-
           ${{ runner.os }}-
 
-    - name: Install npm
+    - name: Install dependencies
       run: npm install
 
     - name: Run test

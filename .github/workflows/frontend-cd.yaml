@@ -1,5 +1,4 @@
 name: Frontend Continuous Deployment
-
 on:
   workflow_dispatch:
   push:
@@ -27,7 +26,7 @@ jobs:
         with:
           node-version: ${{env.NODE_VERSION}}
 
-      - name: Cache npm
+      - name: Perform a cache action to restore cache before dependency install
         id: cache-npm
         uses: actions/cache@v3
         env:
@@ -61,7 +60,7 @@ jobs:
         with:
           node-version: ${{env.NODE_VERSION}}
 
-      - name: Cache npm
+      - name: Perform a cache action to restore cache before dependency install
         id: cache-npm
         uses: actions/cache@v3
         env:
@@ -96,7 +95,7 @@ jobs:
         with:
           node-version: ${{env.NODE_VERSION}}
 
-      - name: Cache npm
+      - name: Perform a cache action to restore cache before dependency install
         id: cache-npm
         uses: actions/cache@v3
         env:
