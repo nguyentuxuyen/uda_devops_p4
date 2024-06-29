@@ -19,7 +19,7 @@ jobs:
           working-directory: starter/backend
 
     steps:
-    - name: Check out repository
+    - name: Checkout repository
       uses: actions/checkout@v3
 
     - name: Use Python
@@ -44,7 +44,7 @@ jobs:
           working-directory: starter/backend
 
     steps:
-    - name: Check out repository
+    - name: Checkout repository
       uses: actions/checkout@v3
 
     - name: Use Python
@@ -71,7 +71,7 @@ jobs:
       - lint
       - test 
     steps:
-    - name: Check out repository
+    - name: Checkout repository
       uses: actions/checkout@v3
 
     - name: Use Python
