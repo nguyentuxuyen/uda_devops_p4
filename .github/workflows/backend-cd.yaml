@@ -95,8 +95,8 @@ jobs:
     - name: Build, tag, and push image to Amazon ECR
       run: |
         docker build -t backend .
-        docker tag backend:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/backend:latest
-        docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/backend:latest
+        docker tag backend:${GITHUB_SHA::7} ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/backend:${GITHUB_SHA::7}
+        docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/backend:${GITHUB_SHA::7}
     
     - name: Configure eks
       run: |
@@ -105,5 +105,5 @@ jobs:
     - name: Set image tag and apply to cluster
       run: |
         cd k8s
-        kustomize edit set image backend=${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/backend:latest
+        kustomize edit set image backend=${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/backend:${GITHUB_SHA::7}
         kustomize build | kubectl apply -f -
