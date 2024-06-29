@@ -6,7 +6,7 @@ on:
       - main
     paths:
       - 'starter/backend/**'
-  
+
 env:
   PYTHON_VERSION: '3.10'
 
