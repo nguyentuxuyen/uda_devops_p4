@@ -1,4 +1,4 @@
-name: Frontend App
+name: Frontend Continuous Deployment
 
 on:
   workflow_dispatch:
